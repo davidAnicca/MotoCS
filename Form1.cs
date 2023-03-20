@@ -47,7 +47,18 @@ namespace Motocliclisti
 
         private void testRegistration(string constring)
         {
-            throw new NotImplementedException();
+            RegistrationDbRepo repo = new RegistrationDbRepo(constring);
+            string str = "";
+            List<Registration> registrations = repo.GetAll();
+            str += "teams: " + registrations.Count.ToString();
+            foreach(Registration registration in registrations)
+            {
+                str += "\n" + registration.ParticipantCode + " " + registration.ProbeCode;
+            }
+            MessageBox.Show(str);
+            Registration registrationN = new Registration(23 , 22);
+            repo.Add(registrationN);
+            repo.Remove(registrationN);
         }
 
         private void testProbe(string constring)
