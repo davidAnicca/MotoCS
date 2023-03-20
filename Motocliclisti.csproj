@@ -164,10 +164,12 @@
         </Compile>
         <Compile Include="Program.cs" />
         <Compile Include="Properties\AssemblyInfo.cs" />
+        <Compile Include="Repo\Generic\ParticipantsRepo.cs" />
         <Compile Include="Repo\Generic\Repo.cs" />
         <Compile Include="Repo\Generic\TeamRepo.cs" />
         <Compile Include="Repo\Generic\UserRepo.cs" />
         <Compile Include="Repo\JdbcUtils.cs" />
+        <Compile Include="Repo\ParticipantsDbRepo.cs" />
         <Compile Include="Repo\TeamDbRepo.cs" />
         <Compile Include="Repo\UserDbRepo.cs" />
         <EmbeddedResource Include="Properties\Resources.resx">

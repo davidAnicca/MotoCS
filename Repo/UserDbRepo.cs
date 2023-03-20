@@ -62,7 +62,6 @@ namespace Motocliclisti.Repo
 
                 connection.Close();
             }
-
             logger.Info("user added");
         }
 

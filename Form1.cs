@@ -33,12 +33,46 @@ namespace Motocliclisti
             try
             {
                 //testUser(constring);
-                testTeam(constring);
+                //testTeam(constring);
+                //testParticipants(constring);
+                
             }
             catch (Exception e)
             {
                 MessageBox.Show(e.Message);
             }
+        }
+
+        private void testParticipants(string constring)
+        {
+            ParticipantsDbRepo repo = new ParticipantsDbRepo(constring);
+            string str = "";
+            List<Participant> participants = repo.GetAll();
+            str += "participants: " + participants.Count.ToString();
+            foreach(Participant participan in participants)
+            {
+                str += "\n" + participan.Code + " " + participan.Name;
+            }
+
+            MessageBox.Show(str);
+            
+            Participant participantN = new Participant(
+                DateTime.Now.Second + 10, 
+                48,
+                100, 
+                "newFromC#"
+            );
+            repo.Add(participantN);
+            Participant toDel = new Participant(
+                DateTime.Now.Second + 10 + 2, 
+                59,
+                100, 
+                "sdnt be here"
+            );
+            repo.Add(toDel);
+            repo.Remove(toDel);
+            participantN.Name ="NewNameFromC#";
+            repo.Modify(participantN);
         }
 
         private void testTeam(string constring)
