@@ -6,6 +6,7 @@ using System.Data;
 using System.Data.SQLite;
 using System.Drawing;
 using System.IO;
+using System.IO.Compression;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -32,11 +33,34 @@ namespace Motocliclisti
             try
             {
                 //testUser(constring);
+                testTeam(constring);
             }
             catch (Exception e)
             {
                 MessageBox.Show(e.Message);
             }
+        }
+
+        private void testTeam(string constring)
+        {
+            TeamDbRepo repo = new TeamDbRepo(constring);
+            string str = "";
+            List<Team> teams = repo.GetAll();
+            str += "teams: " + teams.Count.ToString();
+            foreach(Team team in teams)
+            {
+                str += "\n" + team.Code + " " + team.Name;
+            }
+
+            MessageBox.Show(str);
+            
+            Team teamN = new Team(DateTime.Now.Second + 30 , DateTime.Now.Second.ToString());
+            repo.Add(teamN);
+            Team toDel = new Team(DateTime.Now.Second+2 + 30, DateTime.Now.Second.ToString() + "toDel");
+            repo.Add(toDel);
+            repo.Remove(toDel);
+            teamN.Name ="NewNameFromC#";
+            repo.Modify(teamN);
         }
 
         private void testUser(string constring)
