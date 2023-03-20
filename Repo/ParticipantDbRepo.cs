@@ -5,14 +5,14 @@ using Motocliclisti.Entity;
 
 namespace Motocliclisti.Repo
 {
-    public class ParticipantsDbRepo : ParticipantsRepo
+    public class ParticipantDbRepo : IParticipantsRepo
     {
         private static readonly log4net.ILog logger =
             log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 
         private readonly string _props;
 
-        public ParticipantsDbRepo(string properties)
+        public ParticipantDbRepo(string properties)
         {
             logger.Info("creating TeamDBRepo");
             _props = properties;

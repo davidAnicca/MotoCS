@@ -152,7 +152,7 @@
     </ItemGroup>
     <ItemGroup>
         <Compile Include="Entity\Participant.cs" />
-        <Compile Include="Entity\Proba.cs" />
+        <Compile Include="Entity\Probe.cs" />
         <Compile Include="Entity\Registration.cs" />
         <Compile Include="Entity\Team.cs" />
         <Compile Include="Entity\User.cs" />
@@ -164,12 +164,14 @@
         </Compile>
         <Compile Include="Program.cs" />
         <Compile Include="Properties\AssemblyInfo.cs" />
-        <Compile Include="Repo\Generic\ParticipantsRepo.cs" />
+        <Compile Include="Repo\Generic\ParticipantRepo.cs" />
+        <Compile Include="Repo\Generic\ProbeRepo.cs" />
         <Compile Include="Repo\Generic\Repo.cs" />
         <Compile Include="Repo\Generic\TeamRepo.cs" />
         <Compile Include="Repo\Generic\UserRepo.cs" />
         <Compile Include="Repo\JdbcUtils.cs" />
-        <Compile Include="Repo\ParticipantsDbRepo.cs" />
+        <Compile Include="Repo\ParticipantDbRepo.cs" />
+        <Compile Include="Repo\ProbeDbRepo.cs" />
         <Compile Include="Repo\TeamDbRepo.cs" />
         <Compile Include="Repo\UserDbRepo.cs" />
         <EmbeddedResource Include="Properties\Resources.resx">

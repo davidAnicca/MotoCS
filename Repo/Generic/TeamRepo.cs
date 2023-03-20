@@ -2,7 +2,7 @@
 
 namespace Motocliclisti.Repo
 {
-    public interface TeamRepo : Repo<Team>
+    public interface ITeamRepo : IRepo<Team>
     {
         
     }

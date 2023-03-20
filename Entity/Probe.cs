@@ -2,12 +2,12 @@
 
 namespace Motocliclisti.Entity
 {
-    public class Proba
+    public class Probe
     {
         private int _code;
         private string _name;
 
-        public Proba(int code, string name)
+        public Probe(int code, string name)
         {
             this._code = code;
             this._name = name;
@@ -25,7 +25,7 @@ namespace Motocliclisti.Entity
             set => _name = value;
         }
 
-        protected bool Equals(Proba other)
+        protected bool Equals(Probe other)
         {
             return _code == other._code;
         }
@@ -35,7 +35,7 @@ namespace Motocliclisti.Entity
             if (ReferenceEquals(null, obj)) return false;
             if (ReferenceEquals(this, obj)) return true;
             if (obj.GetType() != this.GetType()) return false;
-            return Equals((Proba)obj);
+            return Equals((Probe)obj);
         }
 
         public override int GetHashCode()
@@ -43,9 +43,9 @@ namespace Motocliclisti.Entity
             return _code;
         }
 
-        private sealed class CodeEqualityComparer : IEqualityComparer<Proba>
+        private sealed class CodeEqualityComparer : IEqualityComparer<Probe>
         {
-            public bool Equals(Proba x, Proba y)
+            public bool Equals(Probe x, Probe y)
             {
                 if (ReferenceEquals(x, y)) return true;
                 if (ReferenceEquals(x, null)) return false;
@@ -54,12 +54,12 @@ namespace Motocliclisti.Entity
                 return x._code == y._code;
             }
 
-            public int GetHashCode(Proba obj)
+            public int GetHashCode(Probe obj)
             {
                 return obj._code;
             }
         }
 
-        public static IEqualityComparer<Proba> CodeComparer { get; } = new CodeEqualityComparer();
+        public static IEqualityComparer<Probe> CodeComparer { get; } = new CodeEqualityComparer();
     }
 }

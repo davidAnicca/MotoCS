@@ -35,7 +35,8 @@ namespace Motocliclisti
                 //testUser(constring);
                 //testTeam(constring);
                 //testParticipants(constring);
-                
+                testProbe(constring);
+
             }
             catch (Exception e)
             {
@@ -43,9 +44,31 @@ namespace Motocliclisti
             }
         }
 
+        private void testProbe(string constring)
+        {
+            ProbeDbRepo repo = new ProbeDbRepo(constring);
+            string str = "";
+            List<Probe> probes = repo.GetAll();
+            str += "teams: " + probes.Count.ToString();
+            foreach(Probe probe in probes)
+            {
+                str += "\n" + probe.Code + " " + probe.Name;
+            }
+
+            MessageBox.Show(str);
+            
+            Probe probeN = new Probe(DateTime.Now.Second + 30 , DateTime.Now.Second.ToString());
+            repo.Add(probeN);
+            Probe toDel = new Probe(DateTime.Now.Second+2 + 30, DateTime.Now.Second.ToString() + "toDel");
+            repo.Add(toDel);
+            repo.Remove(toDel);
+            probeN.Name ="NewNameFromC#";
+            repo.Modify(probeN);
+        }
+
         private void testParticipants(string constring)
         {
-            ParticipantsDbRepo repo = new ParticipantsDbRepo(constring);
+            ParticipantDbRepo repo = new ParticipantDbRepo(constring);
             string str = "";
             List<Participant> participants = repo.GetAll();
             str += "participants: " + participants.Count.ToString();

@@ -5,27 +5,26 @@ using Motocliclisti.Entity;
 
 namespace Motocliclisti.Repo
 {
-    public class TeamDbRepo : ITeamRepo
+    public class ProbeDbRepo : IProbeRepo
     {
-        
         private static readonly log4net.ILog logger =
             log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 
         private readonly string _props;
 
-        public TeamDbRepo(string props)
+        public ProbeDbRepo(string props)
         {
             _props = props;
         }
 
-        public List<Team> GetAll()
+        public List<Probe> GetAll()
         {
-            logger.Info("getting teams from DB");
+            logger.Info("getting probes from DB");
             using (SQLiteConnection connection = new SQLiteConnection(_props))
             {
                 connection.Open();
-                List<Team> teams = new List<Team>();
-                using (SQLiteCommand command = new SQLiteCommand("select * from teams", connection))
+                List<Probe> probes = new List<Probe>();
+                using (SQLiteCommand command = new SQLiteCommand("select * from probes", connection))
                 {
                     using (SQLiteDataReader reader = command.ExecuteReader())
                     {
@@ -33,24 +32,25 @@ namespace Motocliclisti.Repo
                         {
                             int code = reader.GetInt16(reader.GetOrdinal("code"));
                             string name = reader.GetString(reader.GetOrdinal("name"));
-                            teams.Add(new Team(code, name));
+                            probes.Add(new Probe(code, name));
                         }
                     }
                 }
+
                 connection.Close();
-                return teams;
+                return probes;
             }
         }
 
-        public void Add(Team obj)
+        public void Add(Probe obj)
         {
-            logger.Info("adding new team");
+            logger.Info("adding new probe");
             using (SQLiteConnection connection = new SQLiteConnection(_props))
             {
                 connection.Open();
 
                 using (SQLiteCommand command =
-                       new SQLiteCommand("insert into teams(code, name) values(@code, @name)",
+                       new SQLiteCommand("insert into probes(code, name) values(@code, @name)",
                            connection))
                 {
                     command.Parameters.AddWithValue("@code", obj.Code);
@@ -61,16 +61,16 @@ namespace Motocliclisti.Repo
                 connection.Close();
             }
 
-            logger.Info("team added");
+            logger.Info("probe added");
         }
 
-        public void Remove(Team obj)
+        public void Remove(Probe obj)
         {
-            logger.Info("deleting team " + obj.Code.ToString());
+            logger.Info("deleting probe " + obj.Code.ToString());
             using (SQLiteConnection connection = new SQLiteConnection(_props))
             {
                 connection.Open();
-                using (SQLiteCommand command = new SQLiteCommand("delete from teams where code = @code", connection))
+                using (SQLiteCommand command = new SQLiteCommand("delete from probes where code = @code", connection))
                 {
                     command.Parameters.AddWithValue("@code", obj.Code);
                     command.ExecuteNonQuery();
@@ -79,17 +79,17 @@ namespace Motocliclisti.Repo
                 connection.Close();
             }
 
-            logger.Info("team deleted");
+            logger.Info("probe deleted");
         }
 
-        public void Modify(Team obj)
+        public void Modify(Probe obj)
         {
-            logger.Info("updating team " + obj.Code);
+            logger.Info("updating probe " + obj.Code);
             using (SQLiteConnection connection = new SQLiteConnection(_props))
             {
                 connection.Open();
                 using (SQLiteCommand command =
-                       new SQLiteCommand("update teams set name=@name where code=@code",
+                       new SQLiteCommand("update probes set name=@name where code=@code",
                            connection))
                 {
                     command.Parameters.AddWithValue("@name", obj.Name);
@@ -99,29 +99,29 @@ namespace Motocliclisti.Repo
 
                 connection.Close();
             }
-            logger.Info("team updated");
+            logger.Info("probe updated");
         }
 
-        public Team Search(Team obj)
+        public Probe Search(Probe obj)
         {
-            logger.Info("searching for team " + obj.Code);
+            logger.Info("searching for probe " + obj.Code);
             try
             {
-                foreach (Team team in GetAll())
+                foreach (Probe probe in GetAll())
                 {
-                    if (team.Equals(obj))
+                    if (probe.Equals(obj))
                     {
-                        logger.Info("--team found");
-                        return team;
+                        logger.Info("--probe found");
+                        return probe;
                     }
                 }
             }
             catch (Exception e)
             {
-                logger.Error("--TeamDB prepare statement error: " + e.Message);
+                logger.Error("--ProbeDB prepare statement error: " + e.Message);
             }
 
-            logger.Info("--team not found");
+            logger.Info("--probe not found");
             return null;
         }
     }

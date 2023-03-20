@@ -2,7 +2,7 @@
 
 namespace Motocliclisti.Repo
 {
-    public interface ParticipantsRepo : Repo<Participant>
+    public interface IParticipantsRepo : IRepo<Participant>
     {
         
     }

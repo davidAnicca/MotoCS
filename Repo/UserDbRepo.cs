@@ -7,7 +7,7 @@ using Motocliclisti.Entity;
 
 namespace Motocliclisti.Repo
 {
-    public class UserDbRepo : UserRepo
+    public class UserDbRepo : IUserRepo
     {
         private static readonly log4net.ILog logger =
             log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);

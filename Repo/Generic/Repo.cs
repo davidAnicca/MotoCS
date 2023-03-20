@@ -2,7 +2,7 @@
 
 namespace Motocliclisti.Repo
 {
-    public interface Repo<T>
+    public interface IRepo<T>
     {
         List<T> GetAll();
         void Add(T obj);
