@@ -173,6 +173,7 @@
         <Compile Include="Repo\JdbcUtils.cs" />
         <Compile Include="Repo\ParticipantDbRepo.cs" />
         <Compile Include="Repo\ProbeDbRepo.cs" />
+        <Compile Include="Repo\RegistrationDbRepo.cs" />
         <Compile Include="Repo\TeamDbRepo.cs" />
         <Compile Include="Repo\UserDbRepo.cs" />
         <EmbeddedResource Include="Properties\Resources.resx">
@@ -198,6 +199,9 @@
     </ItemGroup>
     <ItemGroup>
         <None Include="App.config" />
+    </ItemGroup>
+    <ItemGroup>
+      <Content Include="log4net.xml" />
     </ItemGroup>
     <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
     <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

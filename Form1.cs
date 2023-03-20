@@ -11,6 +11,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using log4net.Config;
+using log4net.Repository.Hierarchy;
 using Motocliclisti.Entity;
 using Motocliclisti.Repo;
 
@@ -18,8 +20,16 @@ namespace Motocliclisti
 {
     public partial class Form1 : Form
     {
+        private log4net.ILog _logger =  log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
+        
+
         public Form1()
         {
+            Uri configUri = new Uri("C:\\Users\\meres\\Desktop\\Fac\\MPP\\L02-Home\\Motocliclisti\\Motocliclisti\\log4net.config");
+            log4net.Config.XmlConfigurator.Configure(configUri);
+            _logger.Debug("Test");
+            
+            
             StreamReader reader = new StreamReader("bd.config");
             string constring = reader.ReadLine();
             JdbcUtils jdbcUtils = new JdbcUtils(constring);
@@ -32,22 +42,33 @@ namespace Motocliclisti
         {
             try
             {
+                _logger.Error("start test");
                 //testUser(constring);
                 //testTeam(constring);
                 //testParticipants(constring);
                 //testProbe(constring);
-                testRegistration(constring);
-
+                //testRegistration(constring);
             }
             catch (Exception e)
             {
-                MessageBox.Show(e.Message);
+                _logger.Error(e.Message);
             }
         }
 
         private void testRegistration(string constring)
         {
-            throw new NotImplementedException();
+            RegistrationDbRepo repo = new RegistrationDbRepo(constring);
+            string str = "";
+            List<Registration> registrations = repo.GetAll();
+            str += "teams: " + registrations.Count.ToString();
+            foreach(Registration registration in registrations)
+            {
+                str += "\n" + registration.ParticipantCode + " " + registration.ProbeCode;
+            }
+            MessageBox.Show(str);
+            Registration registrationN = new Registration(23 , 22);
+            repo.Add(registrationN);
+            repo.Remove(registrationN);
         }
 
         private void testProbe(string constring)

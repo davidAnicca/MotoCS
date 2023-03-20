@@ -120,7 +120,6 @@ namespace Motocliclisti.Repo
             {
                 logger.Error("--ProbeDB prepare statement error: " + e.Message);
             }
-
             logger.Info("--probe not found");
             return null;
         }
