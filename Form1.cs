@@ -35,13 +35,19 @@ namespace Motocliclisti
                 //testUser(constring);
                 //testTeam(constring);
                 //testParticipants(constring);
-                testProbe(constring);
+                //testProbe(constring);
+                testRegistration(constring);
 
             }
             catch (Exception e)
             {
                 MessageBox.Show(e.Message);
             }
+        }
+
+        private void testRegistration(string constring)
+        {
+            throw new NotImplementedException();
         }
 
         private void testProbe(string constring)
