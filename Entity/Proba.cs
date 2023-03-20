@@ -4,43 +4,30 @@ namespace Motocliclisti.Entity
 {
     public class Proba
     {
-        private int code;
-        private string name;
-        private List<Participant> participanti;
+        private int _code;
+        private string _name;
 
         public Proba(int code, string name)
         {
-            this.code = code;
-            this.name = name;
-            participanti = new List<Participant>();
-        }
-
-        public void addP(Participant p)
-        {
-            participanti.Add(p);
+            this._code = code;
+            this._name = name;
         }
 
         public int Code
         {
-            get => code;
-            set => code = value;
+            get => _code;
+            set => _code = value;
         }
 
         public string Name
         {
-            get => name;
-            set => name = value;
-        }
-
-        public List<Participant> Participanti
-        {
-            get => participanti;
-            set => participanti = value;
+            get => _name;
+            set => _name = value;
         }
 
         protected bool Equals(Proba other)
         {
-            return code == other.code;
+            return _code == other._code;
         }
 
         public override bool Equals(object obj)
@@ -53,7 +40,7 @@ namespace Motocliclisti.Entity
 
         public override int GetHashCode()
         {
-            return code;
+            return _code;
         }
 
         private sealed class CodeEqualityComparer : IEqualityComparer<Proba>
@@ -64,12 +51,12 @@ namespace Motocliclisti.Entity
                 if (ReferenceEquals(x, null)) return false;
                 if (ReferenceEquals(y, null)) return false;
                 if (x.GetType() != y.GetType()) return false;
-                return x.code == y.code;
+                return x._code == y._code;
             }
 
             public int GetHashCode(Proba obj)
             {
-                return obj.code;
+                return obj._code;
             }
         }
 

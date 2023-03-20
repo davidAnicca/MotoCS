@@ -4,30 +4,30 @@ namespace Motocliclisti.Entity
 {
     public class User
     {
-        private string userName;
-        private string passwd;
+        private string _userName;
+        private string _passwd;
 
         public User(string userName, string passwd)
         {
-            this.userName = userName;
-            this.passwd = passwd;
+            this._userName = userName;
+            this._passwd = passwd;
         }
 
         public string UserName
         {
-            get => userName;
-            set => userName = value;
+            get => _userName;
+            set => _userName = value;
         }
 
         public string Passwd
         {
-            get => passwd;
-            set => passwd = value;
+            get => _passwd;
+            set => _passwd = value;
         }
 
         protected bool Equals(User other)
         {
-            return userName == other.userName;
+            return _userName == other._userName;
         }
 
         public override bool Equals(object obj)
@@ -40,7 +40,7 @@ namespace Motocliclisti.Entity
 
         public override int GetHashCode()
         {
-            return (userName != null ? userName.GetHashCode() : 0);
+            return (_userName != null ? _userName.GetHashCode() : 0);
         }
 
         private sealed class UserNameEqualityComparer : IEqualityComparer<User>
@@ -51,12 +51,12 @@ namespace Motocliclisti.Entity
                 if (ReferenceEquals(x, null)) return false;
                 if (ReferenceEquals(y, null)) return false;
                 if (x.GetType() != y.GetType()) return false;
-                return x.userName == y.userName;
+                return x._userName == y._userName;
             }
 
             public int GetHashCode(User obj)
             {
-                return (obj.userName != null ? obj.userName.GetHashCode() : 0);
+                return (obj._userName != null ? obj._userName.GetHashCode() : 0);
             }
         }
 

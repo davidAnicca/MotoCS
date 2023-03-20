@@ -6,44 +6,44 @@ namespace Motocliclisti.Entity
     {
         public int Code
         {
-            get => code;
-            set => code = value;
+            get => _code;
+            set => _code = value;
         }
 
         public int Team
         {
-            get => team;
-            set => team = value;
+            get => _team;
+            set => _team = value;
         }
 
         public int Capacity
         {
-            get => capacity;
-            set => capacity = value;
+            get => _capacity;
+            set => _capacity = value;
         }
 
         public string Name
         {
-            get => name;
-            set => name = value;
+            get => _name;
+            set => _name = value;
         }
 
-        private int code;
-        private int team;
-        private int capacity;
-        private string name;
+        private int _code;
+        private int _team;
+        private int _capacity;
+        private string _name;
 
         public Participant(int code, int team, int capacity, string name)
         {
-            this.code = code;
-            this.team = team;
-            this.capacity = capacity;
-            this.name = name;
+            this._code = code;
+            this._team = team;
+            this._capacity = capacity;
+            this._name = name;
         }
 
         protected bool Equals(Participant other)
         {
-            return code == other.code;
+            return _code == other._code;
         }
 
         public override bool Equals(object obj)
@@ -56,7 +56,7 @@ namespace Motocliclisti.Entity
 
         public override int GetHashCode()
         {
-            return code;
+            return _code;
         }
 
         private sealed class CodeEqualityComparer : IEqualityComparer<Participant>
@@ -67,12 +67,12 @@ namespace Motocliclisti.Entity
                 if (ReferenceEquals(x, null)) return false;
                 if (ReferenceEquals(y, null)) return false;
                 if (x.GetType() != y.GetType()) return false;
-                return x.code == y.code;
+                return x._code == y._code;
             }
 
             public int GetHashCode(Participant obj)
             {
-                return obj.code;
+                return obj._code;
             }
         }
 
