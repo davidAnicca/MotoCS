@@ -123,5 +123,39 @@ namespace Motocliclisti.Repo
             logger.Info("--probe not found");
             return null;
         }
+        
+        public List<Participant> GetParticipants(Probe probe)
+        {
+            List<Participant> participantList = new List<Participant>();
+            using (SQLiteConnection connection = new SQLiteConnection(_props))
+            {
+                connection.Open();
+                using (SQLiteCommand command = new SQLiteCommand(
+                           "select * from participants ps " +
+                           "inner join registrations r on ps.code = r.participant_code " +
+                           "where r.probe_code = @probeCode", connection))
+                {
+                    command.Parameters.AddWithValue("@probeCode", probe.Code);
+                    using (SQLiteDataReader reader = command.ExecuteReader())
+                    {
+                        GetInfo(participantList, reader);
+                    }
+                }
+            }
+            return participantList;
+        }
+
+        static void GetInfo(List<Participant> participants, SQLiteDataReader reader)
+        {
+            while (reader.Read())
+            {
+                int code = reader.GetInt32(reader.GetOrdinal("code"));
+                string name = reader.GetString(reader.GetOrdinal("name"));
+                int teamCode = reader.GetInt32(reader.GetOrdinal("team_code"));
+                int capacity = reader.GetInt32(reader.GetOrdinal("capacity"));
+                participants.Add(new Participant(code, teamCode, capacity, name));
+            }
+        }
+        
     }
 }

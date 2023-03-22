@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Data.SQLite;
 using Motocliclisti.Entity;
 
@@ -135,6 +136,44 @@ namespace Motocliclisti.Repo
 
             logger.Info("--participant not found");
             return null;
+        }
+
+        public List<Participant> FindByTeam(Team team)
+        {
+            logger.Info("getting participants by team");
+            using (SQLiteConnection connection = new SQLiteConnection(_props))
+            {
+                List<Participant> participants = new List<Participant>();
+                using (SQLiteCommand command = new SQLiteCommand(
+                           "select * from participants where team_code = @teamCode",
+                           connection))
+                {
+                    command.Parameters.AddWithValue("@teamCode", team.Code);
+                    GetParticipantInfo(participants, command);
+                }
+
+                return participants;
+            }
+        }
+
+        private void GetParticipantInfo(List<Participant> participants, SQLiteCommand command)
+        {
+            using (SQLiteDataReader reader = command.ExecuteReader())
+            {
+                GetInfo(participants, reader);
+            }
+        }
+
+        static void GetInfo(List<Participant> participants, SQLiteDataReader reader)
+        {
+            while (reader.Read())
+            {
+                int code = reader.GetInt32(reader.GetOrdinal("code"));
+                string name = reader.GetString(reader.GetOrdinal("name"));
+                int teamCode = reader.GetInt32(reader.GetOrdinal("team_code"));
+                int capacity = reader.GetInt32(reader.GetOrdinal("capacity"));
+                participants.Add(new Participant(code, teamCode, capacity, name));
+            }
         }
     }
 }
