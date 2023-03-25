@@ -143,6 +143,7 @@ namespace Motocliclisti.Repo
             logger.Info("getting participants by team");
             using (SQLiteConnection connection = new SQLiteConnection(_props))
             {
+                connection.Open();
                 List<Participant> participants = new List<Participant>();
                 using (SQLiteCommand command = new SQLiteCommand(
                            "select * from participants where team_code = @teamCode",
@@ -151,7 +152,7 @@ namespace Motocliclisti.Repo
                     command.Parameters.AddWithValue("@teamCode", team.Code);
                     GetParticipantInfo(participants, command);
                 }
-
+                connection.Close();
                 return participants;
             }
         }

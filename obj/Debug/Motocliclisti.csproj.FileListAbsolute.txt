@@ -63,3 +63,6 @@ C:\Users\meres\Desktop\Fac\MPP\L02-Home\Motocliclisti\Motocliclisti\bin\Debug\Sy
 C:\Users\meres\Desktop\Fac\MPP\L02-Home\Motocliclisti\Motocliclisti\bin\Debug\System.Memory.xml
 C:\Users\meres\Desktop\Fac\MPP\L02-Home\Motocliclisti\Motocliclisti\bin\Debug\System.Numerics.Vectors.xml
 C:\Users\meres\Desktop\Fac\MPP\L02-Home\Motocliclisti\Motocliclisti\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
+C:\Users\meres\Desktop\Fac\MPP\L02-Home\Motocliclisti\Motocliclisti\obj\Debug\Motocliclisti.Form1.resources
+C:\Users\meres\Desktop\Fac\MPP\L02-Home\Motocliclisti\Motocliclisti\obj\Debug\Motocliclisti.Main.resources
+C:\Users\meres\Desktop\Fac\MPP\L02-Home\Motocliclisti\Motocliclisti\obj\Debug\Motocliclisti.EntryParticipant.resources
