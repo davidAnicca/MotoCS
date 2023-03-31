@@ -44,22 +44,9 @@ namespace Motocliclisti.Srv
             return _probeRepo.GetParticipants(new Probe(probeCode, "")).Count;
         }
 
-        public List<Participant> getParticipantsByTeam(string team)
+        public List<Participant> GetParticipantsByTeam(string team)
         {
-            int code = 0;
-            List<Team> teams = _teamRepo.GetAll();
-            foreach(Team teamm in teams)
-            {
-                if (teamm.Name == team)
-                {
-                    code = teamm.Code;
-                    break;
-                }
-            }
-
-            if (code == 0)
-                return null;
-            return _participantRepo.FindByTeam(new Team(code, ""));
+            return _participantRepo.FindByTeam(new Team(0, team));
         }
 
         public List<Team> GetTeams()
@@ -70,30 +57,14 @@ namespace Motocliclisti.Srv
         public void AddParticipant(string name, string team, string capacity)
         {
             int maxCode = 0;
-            foreach(Participant participant in _participantRepo.GetAll())
-            {
-                if (maxCode < participant.Code)
-                    maxCode = participant.Code;
-            }
-
+            maxCode = _participantRepo.MaxCode(maxCode);
             int participantCode = maxCode + 1;
-            
-            int teamCode = 0;
-            
-            List<Team> teams = _teamRepo.GetAll();
-            foreach(Team teamm in teams)
-            {
-                if (teamm.Name == team)
-                {
-                    teamCode = teamm.Code;
-                    break;
-                }
-            }
-            
+            int teamCode = _teamRepo.FindByName(team).Code;
             _participantRepo.Add(new Participant(participantCode,
                 teamCode,
                 int.Parse(capacity),
                 name));
         }
+        
     }
 }

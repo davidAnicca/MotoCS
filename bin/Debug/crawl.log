@@ -210,3 +210,58 @@
 2023-03-25 23:17:55,253 [1] INFO Motocliclisti.Repo.ProbeDbRepo - getting probes from DB
 2023-03-25 23:18:00,516 [1] INFO Motocliclisti.Repo.TeamDbRepo - getting teams from DB
 2023-03-25 23:18:00,520 [1] INFO Motocliclisti.Repo.ParticipantDbRepo - getting participants by team
+2023-03-27 18:35:06,918 [1] DEBUG Motocliclisti.Form1 - Test
+2023-03-27 18:35:06,942 [1] INFO Motocliclisti.Repo.UserDbRepo - creating UserDBRepo
+2023-03-27 18:35:06,942 [1] INFO Motocliclisti.Repo.ParticipantDbRepo - creating TeamDBRepo
+2023-03-27 18:35:10,148 [1] INFO Motocliclisti.Repo.UserDbRepo - creating UserDBRepo
+2023-03-27 18:35:10,152 [1] INFO Motocliclisti.Repo.UserDbRepo - searching for user a
+2023-03-27 18:35:10,226 [1] INFO Motocliclisti.Repo.UserDbRepo - getting users from DB
+2023-03-27 18:35:10,444 [1] INFO Motocliclisti.Repo.UserDbRepo - --user found
+2023-03-27 18:35:10,454 [1] INFO Motocliclisti.Repo.ProbeDbRepo - getting probes from DB
+2023-03-27 18:35:15,385 [1] INFO Motocliclisti.Repo.ProbeDbRepo - getting probes from DB
+2023-03-27 18:35:15,387 [1] INFO Motocliclisti.Repo.TeamDbRepo - getting teams from DB
+2023-03-27 18:35:24,652 [1] INFO Motocliclisti.Repo.ParticipantDbRepo - getting participants from DB
+2023-03-27 18:35:24,653 [1] INFO Motocliclisti.Repo.TeamDbRepo - getting teams from DB
+2023-03-27 18:35:24,655 [1] INFO Motocliclisti.Repo.ParticipantDbRepo - adding new participant
+2023-03-27 18:35:24,674 [1] INFO Motocliclisti.Repo.ParticipantDbRepo - participant added
+2023-03-27 18:57:00,132 [1] DEBUG Motocliclisti.Form1 - Test
+2023-03-27 18:57:00,145 [1] INFO Motocliclisti.Repo.UserDbRepo - creating UserDBRepo
+2023-03-27 18:57:00,146 [1] INFO Motocliclisti.Repo.ParticipantDbRepo - creating TeamDBRepo
+2023-03-27 18:57:04,252 [1] INFO Motocliclisti.Repo.UserDbRepo - creating UserDBRepo
+2023-03-27 18:57:04,253 [1] INFO Motocliclisti.Repo.UserDbRepo - searching for user a
+2023-03-27 18:57:04,273 [1] INFO Motocliclisti.Repo.UserDbRepo - getting users from DB
+2023-03-27 18:57:04,369 [1] INFO Motocliclisti.Repo.UserDbRepo - --user found
+2023-03-27 18:57:04,373 [1] INFO Motocliclisti.Repo.ProbeDbRepo - getting probes from DB
+2023-03-27 18:57:11,739 [1] INFO Motocliclisti.Repo.ParticipantDbRepo - getting participants by team
+2023-03-27 18:57:17,580 [1] INFO Motocliclisti.Repo.ParticipantDbRepo - getting participants by team
+2023-03-27 18:57:18,060 [1] INFO Motocliclisti.Repo.ParticipantDbRepo - getting participants by team
+2023-03-27 18:57:18,256 [1] INFO Motocliclisti.Repo.ParticipantDbRepo - getting participants by team
+2023-03-27 18:57:19,025 [1] INFO Motocliclisti.Repo.ParticipantDbRepo - getting participants by team
+2023-03-27 18:57:20,038 [1] INFO Motocliclisti.Repo.ParticipantDbRepo - getting participants by team
+2023-03-27 19:01:28,314 [1] DEBUG Motocliclisti.Form1 - Test
+2023-03-27 19:01:28,327 [1] INFO Motocliclisti.Repo.UserDbRepo - creating UserDBRepo
+2023-03-27 19:01:28,328 [1] INFO Motocliclisti.Repo.ParticipantDbRepo - creating TeamDBRepo
+2023-03-27 19:01:30,703 [1] INFO Motocliclisti.Repo.UserDbRepo - creating UserDBRepo
+2023-03-27 19:01:30,704 [1] INFO Motocliclisti.Repo.UserDbRepo - searching for user a
+2023-03-27 19:01:30,717 [1] INFO Motocliclisti.Repo.UserDbRepo - getting users from DB
+2023-03-27 19:01:30,805 [1] INFO Motocliclisti.Repo.UserDbRepo - --user found
+2023-03-27 19:01:30,807 [1] INFO Motocliclisti.Repo.ProbeDbRepo - getting probes from DB
+2023-03-27 19:01:36,951 [1] INFO Motocliclisti.Repo.ParticipantDbRepo - getting participants by team
+2023-03-27 19:02:49,507 [1] DEBUG Motocliclisti.Form1 - Test
+2023-03-27 19:02:49,528 [1] INFO Motocliclisti.Repo.UserDbRepo - creating UserDBRepo
+2023-03-27 19:02:49,529 [1] INFO Motocliclisti.Repo.ParticipantDbRepo - creating TeamDBRepo
+2023-03-27 19:02:51,364 [1] INFO Motocliclisti.Repo.UserDbRepo - creating UserDBRepo
+2023-03-27 19:02:51,365 [1] INFO Motocliclisti.Repo.UserDbRepo - searching for user a
+2023-03-27 19:02:51,378 [1] INFO Motocliclisti.Repo.UserDbRepo - getting users from DB
+2023-03-27 19:02:51,466 [1] INFO Motocliclisti.Repo.UserDbRepo - --user found
+2023-03-27 19:02:51,469 [1] INFO Motocliclisti.Repo.ProbeDbRepo - getting probes from DB
+2023-03-27 19:02:55,046 [1] INFO Motocliclisti.Repo.ParticipantDbRepo - getting participants by team
+2023-03-27 19:08:23,651 [1] DEBUG Motocliclisti.Form1 - Test
+2023-03-27 19:08:23,664 [1] INFO Motocliclisti.Repo.UserDbRepo - creating UserDBRepo
+2023-03-27 19:08:23,665 [1] INFO Motocliclisti.Repo.ParticipantDbRepo - creating TeamDBRepo
+2023-03-27 19:08:32,168 [1] INFO Motocliclisti.Repo.UserDbRepo - creating UserDBRepo
+2023-03-27 19:08:32,169 [1] INFO Motocliclisti.Repo.UserDbRepo - searching for user a
+2023-03-27 19:08:32,183 [1] INFO Motocliclisti.Repo.UserDbRepo - getting users from DB
+2023-03-27 19:08:32,270 [1] INFO Motocliclisti.Repo.UserDbRepo - --user found
+2023-03-27 19:08:32,273 [1] INFO Motocliclisti.Repo.ProbeDbRepo - getting probes from DB
+2023-03-27 19:08:41,534 [1] INFO Motocliclisti.Repo.ParticipantDbRepo - getting participants by team

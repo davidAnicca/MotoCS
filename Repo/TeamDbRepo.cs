@@ -7,7 +7,6 @@ namespace Motocliclisti.Repo
 {
     public class TeamDbRepo : ITeamRepo
     {
-        
         private static readonly log4net.ILog logger =
             log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 
@@ -37,6 +36,7 @@ namespace Motocliclisti.Repo
                         }
                     }
                 }
+
                 connection.Close();
                 return teams;
             }
@@ -99,6 +99,7 @@ namespace Motocliclisti.Repo
 
                 connection.Close();
             }
+
             logger.Info("team updated");
         }
 
@@ -123,6 +124,20 @@ namespace Motocliclisti.Repo
 
             logger.Info("--team not found");
             return null;
+        }
+
+        public Team FindByName(string name)
+        {
+            List<Team> teams = GetAll();
+            foreach (Team teamm in teams)
+            {
+                if (teamm.Name == name)
+                {
+                    return teamm;
+                }
+            }
+
+            return teams[0];
         }
     }
 }

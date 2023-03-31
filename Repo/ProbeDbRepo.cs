@@ -131,9 +131,7 @@ namespace Motocliclisti.Repo
             {
                 connection.Open();
                 using (SQLiteCommand command = new SQLiteCommand(
-                           "select * from participants ps " +
-                           "inner join registrations r on ps.code = r.participant_code " +
-                           "where r.probe_code = @probeCode", connection))
+                           "select * from participants where capacity = @probeCode", connection))
                 {
                     command.Parameters.AddWithValue("@probeCode", probe.Code);
                     using (SQLiteDataReader reader = command.ExecuteReader())

@@ -33,7 +33,7 @@ namespace Motocliclisti
         private void button1_Click(object sender, EventArgs e)
         {
             String team = teamText.Text;
-            List<Participant> participants = _service.getParticipantsByTeam(team);
+            List<Participant> participants = _service.GetParticipantsByTeam(team);
 
             if (participants == null)
             {

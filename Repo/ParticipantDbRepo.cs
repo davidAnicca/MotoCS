@@ -146,10 +146,12 @@ namespace Motocliclisti.Repo
                 connection.Open();
                 List<Participant> participants = new List<Participant>();
                 using (SQLiteCommand command = new SQLiteCommand(
-                           "select * from participants where team_code = @teamCode",
+                           "select * from participants p inner join " +
+                           "teams t on t.code = p.team_code " +
+                           "where t.name = @teamName",
                            connection))
                 {
-                    command.Parameters.AddWithValue("@teamCode", team.Code);
+                    command.Parameters.AddWithValue("@teamName", team.Name);
                     GetParticipantInfo(participants, command);
                 }
                 connection.Close();
@@ -175,6 +177,16 @@ namespace Motocliclisti.Repo
                 int capacity = reader.GetInt32(reader.GetOrdinal("capacity"));
                 participants.Add(new Participant(code, teamCode, capacity, name));
             }
+        }
+        
+        public int MaxCode(int maxCode)
+        {
+            foreach (Participant participant in GetAll())
+            {
+                if (maxCode < participant.Code)
+                    maxCode = participant.Code;
+            }
+            return maxCode;
         }
     }
 }
