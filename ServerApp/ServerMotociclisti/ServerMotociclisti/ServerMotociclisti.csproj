@@ -1,0 +1,23 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <OutputType>Exe</OutputType>
+        <TargetFramework>net7.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <PackageReference Include="System.Data.SQLite.Core" Version="1.0.117" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <None Include="bin\Debug\net7.0\bd.config" />
+      <None Include="bin\Debug\net7.0\runtimes\bd.config" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Folder Include="bin\Debug\net7.0\runtimes" />
+    </ItemGroup>
+
+</Project>

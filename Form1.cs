@@ -3,6 +3,7 @@ using System.IO;
 using System.Windows.Forms;
 using Motocliclisti.Entity;
 using Motocliclisti.Repo;
+using Motocliclisti.ServerC;
 using Motocliclisti.Srv;
 
 namespace Motocliclisti

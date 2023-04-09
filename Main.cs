@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Windows.Forms;
 using Motocliclisti.Entity;
 using Motocliclisti.Repo;
+using Motocliclisti.ServerC;
 using Motocliclisti.Srv;
 
 namespace Motocliclisti
@@ -11,12 +12,20 @@ namespace Motocliclisti
     {
         private Service _service;
 
+        private ServerCom _serverCom;
+
         public Main(Service service)
         {
             _service = service;
             InitializeComponent();
+            this.Load += new EventHandler(Main_Load);
+            UpdateList();
+        }
 
+        private void UpdateList()
+        {
             List<Probe> probesData = _service.getProbes();
+            probes.Items.Clear();
             foreach (var probe in probesData)
             {
                 probes.Items.Add(
@@ -27,6 +36,19 @@ namespace Motocliclisti
                         .getParticipantsCount
                             (probe.Code)
                     + " participanți");
+            }
+        }
+
+        private void Main_Load(object sender, EventArgs e)
+        {
+            try
+            {
+                _serverCom = new ServerCom(this);
+            }
+            catch (Exception ignored)
+            {
+                MessageBox.Show("Eroare la conectare server. Aplicația se va închide");
+                Application.Exit();
             }
         }
 
@@ -53,6 +75,11 @@ namespace Motocliclisti
         {
             EntryParticipant entryParticipant = new EntryParticipant(_service);
             entryParticipant.Show();
+        }
+
+        public void Notify()
+        {
+            UpdateList();
         }
     }
 }

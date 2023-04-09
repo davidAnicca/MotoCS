@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "iG49E2bX0rYQrmgoxWGzvgCwuWStHsmNnUg9aE3/a/YKQdbCmKd+U2si0Fko3G6R6MeERPEqOCLOUqMg5ZXphQ==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\meres\\Desktop\\Fac\\MPP\\L02-Home\\Motocliclisti\\Motocliclisti\\ServerApp\\ServerMotociclisti\\ServerMotociclisti\\ServerMotociclisti.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\meres\\.nuget\\packages\\stub.system.data.sqlite.core.netstandard\\1.0.117\\stub.system.data.sqlite.core.netstandard.1.0.117.nupkg.sha512",
+    "C:\\Users\\meres\\.nuget\\packages\\system.data.sqlite.core\\1.0.117\\system.data.sqlite.core.1.0.117.nupkg.sha512"
+  ],
+  "logs": []
+}

@@ -188,6 +188,7 @@
         <Compile Include="Repo\RegistrationDbRepo.cs" />
         <Compile Include="Repo\TeamDbRepo.cs" />
         <Compile Include="Repo\UserDbRepo.cs" />
+        <Compile Include="ServerC\ServerCom.cs" />
         <Compile Include="Srv\Service.cs" />
         <EmbeddedResource Include="EntryParticipant.resx">
           <DependentUpon>EntryParticipant.cs</DependentUpon>
